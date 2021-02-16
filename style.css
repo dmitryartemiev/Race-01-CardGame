@@ -1,0 +1,186 @@
+*,
+*::before,
+*::after,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-family: 'Marvel', sans-serif;
+  color: white;
+  box-sizing: border-box;
+}
+.container {
+  margin: 100px auto;
+  border: 1px solid black;
+  max-width: 800px;
+  padding: 10px;
+  border-radius: 20px;
+  /* background: linear-gradient(60deg, rgb(145, 41, 41), rgb(235, 32, 32)); */
+  background: url("/assets/images/comicpanelsdark.png") rgb(44, 44, 44);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.hand {
+  border: 1px solid black;
+  margin: 30px 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: url("/assets/images/comicpanelsdark.png") rgb(146, 85, 85);
+  object-fit: cover;
+  border-radius: 20px;
+}
+.card {
+  width: 75px;
+  height: 120px;
+  border: 1px solid black;
+  border-radius: 20px;
+  position: relative;
+  cursor: grab;
+  background-color: rgb(0, 0, 0);
+  transition: transform 0.25s;
+}
+.card:hover {
+  transform: scale(1.1);
+}
+.card:active{
+    transform: scale(1.1);
+}
+.hide {
+  opacity: 0;
+}
+.remove{
+    display: none;
+}
+.hovered{
+    background-color: #d1d8e23f;
+}
+.card-portrait {
+  max-width: 75px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.card-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  margin-top: 8px;
+  font-weight: 700;
+}
+.cost,
+.defence,
+.attack {
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+
+  color: white;
+}
+.cost {
+  background-color: rgb(202, 115, 0);
+  right: 20%;
+  top: -10px;
+}
+.defence {
+  background-color: rgb(78, 136, 44);
+  bottom: -5px;
+  right: -5px;
+}
+.attack {
+  background-color: rgb(116, 116, 116);
+  bottom: -5px;
+  left: -5px;
+}
+.player-section {
+  display: flex;
+  justify-content: center;
+}
+.avatar {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  border: 1px solid black;
+  position: relative;
+  background-color: rgb(235, 172, 78);
+}
+#first-player-health {
+  position: absolute;
+  bottom: -10px;
+  right: 50%;
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: rgb(138, 0, 0);
+}
+.coins-container {
+  float: right;
+  border: 1px solid black;
+  position: absolute;
+  right: 50px;
+  display: flex;
+}
+.coins-amount {
+  bottom: 0;
+}
+.coin {
+  width: 20px;
+  height: 20px;
+  background-color: gold;
+  border-radius: 50%;
+  margin: 0 2px;
+}
+.coins {
+  display: flex;
+}
+.coins-amount {
+  margin-right: 10px;
+}
+.playground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.first-player-section,
+.second-player-section {
+  border: 1px solid black;
+  display: flex;
+  padding: 0px 0px;
+  margin: 10px 0px;
+  background: url("/assets/images/comicpanelsdark.png") rgb(49, 65, 48);
+  border-radius: 20px;
+
+}
+.time {
+  position: absolute;
+  left: 50px;
+  top: 45%;
+  font-size: 3.5rem;
+  
+}
+.combat-button {
+  position: absolute;
+  right: 20px;
+  top: 45%;
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  padding: 10px;
+  background: linear-gradient(35deg, rgb(126, 23, 23), rgb(255, 0, 0));
+  border-radius: 20px;
+  
+  
+}
+.combat-button:active {
+    background: rgb(146, 24, 24);
+    
+}
+.empty {
+  width: 75px;
+  height: 120px;
+border-radius: 20px;
+  margin: 10px;
+}
+

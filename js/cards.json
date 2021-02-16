@@ -1,0 +1,256 @@
+[
+    {"id" : 1,
+    "title" : "Iron-Man",
+    "portrait" : "assets/images/portraits/iron-man.png",
+    "price" : 3,
+    "health" : 2,
+    "attack" : 3
+},
+
+{"id" : 2,
+    "title" : "Captain America",
+    "portrait" : "assets/images/portraits/captain-america.png",
+    "price" : 4,
+    "health" : 6,
+    "attack" : 3
+},
+
+{"id" : 3,
+    "title" : "Hulk",
+    "portrait" : "assets/images/portraits/hulk.png",
+    "price" : 5,
+    "health" : 6,
+    "attack" : 4
+},
+
+{"id" : 4,
+    "title" : "Thor",
+    "portrait" : "assets/images/portraits/thor.png",
+    "price" : 5,
+    "health" : 6,
+    "attack" : 4
+},
+
+{"id" : 5,
+    "title" : "Black Widow",
+    "portrait" : "assets/images/portraits/black-widow.png",
+    "price" : 2,
+    "health" : 1,
+    "attack" : 2
+},
+
+{"id" : 6,
+    "title" : "Black Panther",
+    "portrait" : "assets/images/portraits/black-panther.png",
+    "price" : 4,
+    "health" : 2,
+    "attack" : 4
+},
+
+{"id" : 7,
+    "title" : "Okoye",
+    "portrait" : "assets/images/portraits/okoye.png",
+    "price" : 2,
+    "health" : 1,
+    "attack" : 2
+},
+
+{"id" : 8,
+    "title" : "Ant-Man",
+    "portrait" : "assets/images/portraits/ant-man.png",
+    "price" : 2,
+    "health" : 2,
+    "attack" : 1
+},
+
+{"id" : 9,
+    "title" : "Wasp",
+    "portrait" : "assets/images/portraits/wasp.png",
+    "price" : 2,
+    "health" : 2,
+    "attack" : 1
+},
+
+{"id" : 10,
+    "title" : "Doctor Strange",
+    "portrait" : "assets/images/portraits/doctor-strange.png",
+    "price" : 3,
+    "health" : 1,
+    "attack" : 3
+},
+
+{"id" : 11,
+    "title" : "Hawkeye",
+    "portrait" : "assets/images/portraits/hawkeye.png",
+    "price" : 2,
+    "health" : 1,
+    "attack" : 2
+},
+
+{"id" : 12,
+    "title" : "Falcon",
+    "portrait" : "assets/images/portraits/falcon.png",
+    "price" : 2,
+    "health" : 2,
+    "attack" : 2
+},
+
+{"id" : 13,
+    "title" : "Maria Hill",
+    "portrait" : "assets/images/portraits/maria-hill.png",
+    "price" : 1,
+    "health" : 1,
+    "attack" : 1
+},
+
+{"id" : 14,
+    "title" : "Vision",
+    "portrait" : "assets/images/portraits/vision.png",
+    "price" : 2,
+    "health" : 2,
+    "attack" : 1
+},
+
+{"id" : 15,
+    "title" : "War Machine",
+    "portrait" : "assets/images/portraits/war-machine.png",
+    "price" : 3,
+    "health" : 3,
+    "attack" : 2
+},
+
+{"id" : 16,
+    "title" : "Nick Fury",
+    "portrait" : "assets/images/portraits/nick-fury.png",
+    "price" : 3,
+    "health" : 3,
+    "attack" : 2
+},
+
+{"id" : 17,
+    "title" : "Ultron",
+    "portrait" : "assets/images/portraits/ultron.png",
+    "price" : 2,
+    "health" : 2,
+    "attack" : 1
+},
+
+{"id" : 18,
+    "title" : "Loki",
+    "portrait" : "assets/images/portraits/loki.png",
+    "price" : 2,
+    "health" : 3,
+    "attack" : 1
+},
+
+{"id" : 19,
+    "title" : "Red Skull",
+    "portrait" : "assets/images/portraits/red-skull.png",
+    "price" : 1,
+    "health" : 1,
+    "attack" : 1
+},
+
+{"id" : 20,
+    "title" : "Star-Lord",
+    "portrait" : "assets/images/portraits/star-lord.png",
+    "price" : 2,
+    "health" : 1,
+    "attack" : 2
+},
+{"id" : 21,
+    "title" : "Rocket Raccoon",
+    "portrait" : "assets/images/portraits/rocket.png",
+    "price" : 1,
+    "health" : 1,
+    "attack" : 1
+},
+
+{"id" : 22,
+    "title" : "Groot",
+    "portrait" : "assets/images/portraits/groot.png",
+    "price" : 1,
+    "health" : 1,
+    "attack" : 1
+},
+
+{"id" : 23,
+    "title" : "Gamora",
+    "portrait" : "assets/images/portraits/gamora.png",
+    "price" : 2,
+    "health" : 1,
+    "attack" : 2
+},
+
+{"id" : 24,
+    "title" : "Drax",
+    "portrait" : "assets/images/portraits/drax.png",
+    "price" : 2,
+    "health" : 1,
+    "attack" : 2
+},
+
+{"id" : 25,
+    "title" : "Mantis",
+    "portrait" : "assets/images/portraits/mantis.png",
+    "price" : 1,
+    "health" : 1,
+    "attack" : 1
+},
+
+{"id" : 26,
+    "title" : "Cosmo",
+    "portrait" : "assets/images/portraits/cosmo.png",
+    "price" : 1,
+    "health" : 1,
+    "attack" : 1
+},
+
+{"id" : 27,
+    "title" : "Tippy-Toe",
+    "portrait" : "assets/images/portraits/tippy-toe.png",
+    "price" : 1,
+    "health" : 1,
+    "attack" : 1
+},
+
+{"id" : 28,
+    "title" : "Lockjaw",
+    "portrait" : "assets/images/portraits/lockjaw.png",
+    "price" : 1,
+    "health" : 1,
+    "attack" : 1
+},
+
+{"id" : 29,
+    "title" : "Captain Marvel",
+    "portrait" : "assets/images/portraits/captain-marvel.png",
+    "price" : 6,
+    "health" : 6,
+    "attack" : 6
+},
+
+{"id" : 30,
+    "title" : "Spider-Man",
+    "portrait" : "assets/images/portraits/spider-man.png",
+    "price" : 2,
+    "health" : 2,
+    "attack" : 2
+},
+
+{"id" : 31,
+    "title" : "Venom",
+    "portrait" : "assets/images/portraits/venom.png",
+    "price" : 3,
+    "health" : 3,
+    "attack" : 3
+},
+
+{"id" : 32,
+    "title" : "Black Cat",
+    "portrait" : "assets/images/portraits/black-cat.png",
+    "price" : 1,
+    "health" : 1,
+    "attack" : 1
+}
+]

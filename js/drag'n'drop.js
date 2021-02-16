@@ -3,7 +3,7 @@ const dragAndDrop = () => {
   const cards = document.querySelectorAll(".card");
   const empties = document.querySelectorAll(".empty");
 
-    let transfer;
+  let transfer;
 
   for (let card of cards) {
     const dragStart = function () {
@@ -20,7 +20,6 @@ const dragAndDrop = () => {
     card.addEventListener("dragstart", dragStart);
     card.addEventListener("dragend", dragEnd);
   }
-
 
   for (let empty of empties) {
       const dragOver = function (evt) {

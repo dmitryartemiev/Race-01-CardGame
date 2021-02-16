@@ -4,7 +4,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  font-family: 'Marvel', sans-serif;
+  font-family: "Marvel", sans-serif;
   color: white;
   box-sizing: border-box;
 }
@@ -43,17 +43,17 @@
 .card:hover {
   transform: scale(1.1);
 }
-.card:active{
-    transform: scale(1.1);
+.card:active {
+  transform: scale(1.1);
 }
 .hide {
   opacity: 0;
 }
-.remove{
-    display: none;
+.remove {
+  display: none;
 }
-.hovered{
-    background-color: #d1d8e23f;
+.hovered {
+  background-color: #d1d8e23f;
 }
 .card-portrait {
   max-width: 75px;
@@ -117,7 +117,7 @@
 }
 .coins-container {
   float: right;
-  border: 1px solid black;
+
   position: absolute;
   right: 50px;
   display: flex;
@@ -129,6 +129,7 @@
   width: 20px;
   height: 20px;
   background-color: gold;
+  border: 1px solid black;
   border-radius: 50%;
   margin: 0 2px;
 }
@@ -151,14 +152,12 @@
   margin: 10px 0px;
   background: url("/assets/images/comicpanelsdark.png") rgb(49, 65, 48);
   border-radius: 20px;
-
 }
 .time {
   position: absolute;
   left: 50px;
   top: 45%;
   font-size: 3.5rem;
-  
 }
 .combat-button {
   position: absolute;
@@ -170,17 +169,28 @@
   padding: 10px;
   background: linear-gradient(35deg, rgb(126, 23, 23), rgb(255, 0, 0));
   border-radius: 20px;
-  
-  
 }
 .combat-button:active {
-    background: rgb(146, 24, 24);
-    
+  background: rgb(146, 24, 24);
 }
 .empty {
   width: 75px;
   height: 120px;
-border-radius: 20px;
+  border-radius: 20px;
   margin: 10px;
 }
 
+.first-player-deck,
+.second-player-deck {
+  border: 1px solid black;
+  min-height: 142px;
+  min-width: 100px;
+  position: absolute;
+  right: -200px;
+}
+.first-player-deck {
+  top: 40px;
+}
+.second-player-deck {
+  bottom: 40px;
+}

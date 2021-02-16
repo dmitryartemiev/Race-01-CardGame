@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "name": "Race-01-CardGame-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmitryartemiev/Race-01-CardGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmitryartemiev/Race-01-CardGame/issues"
+  },
+  "homepage": "https://github.com/dmitryartemiev/Race-01-CardGame#readme",
+  "description": ""
+}

@@ -194,4 +194,5 @@
 }
 .second-player-deck {
   bottom: 40px;
+  display: flex;
 }

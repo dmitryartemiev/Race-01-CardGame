@@ -52,10 +52,6 @@ function dragAndDrop() {
       dropZone = [...dropZone.classList].join(" ");
       pickUpZone = [...pickUpZone.classList].join(" ");
 
-      if (!this.innerHTML == "") {
-        droppable = false;
-      }
-
       if (
         (pickUpZone.includes("second-hand") &&
           dropZone.includes("second-player-section")) ||
@@ -82,12 +78,26 @@ function dragAndDrop() {
       ) {
         droppable = true;
       }
+      //атака
+      if (
+        pickUpZone.includes("section") &&
+        this.innerHTML !== "" &&
+        dropZone.includes("section") && 
+        dropZone !== pickUpZone
+      ) {
+        console.log("atack");
+      }
+
+      if (!this.innerHTML == "") {
+        droppable = false;
+      }
+
       if (droppable) {
         this.append(transfer);
       }
 
-      console.log(pickUpZone);
-      console.log(dropZone);
+      // console.log(pickUpZone);
+      // console.log(dropZone);
     };
     empty.addEventListener("dragover", dragOver);
     empty.addEventListener("dragenter", dragEnter);

@@ -25,7 +25,6 @@ function addCardToHand(hand, deck) {
         empty = finger;
       }
     }
-
     let cardPos = deck.children[0].getBoundingClientRect();
     let emptyPos = empty.getBoundingClientRect();
     deck.children[0].style.transform = `translate(-${cardPos.x - emptyPos.x}px)`;
@@ -34,9 +33,6 @@ function addCardToHand(hand, deck) {
       empty.appendChild(deck.children[0]);
       deck.children[0].remove();
     }, 1000);
-
-    console.log(cardPos);
-    console.log(emptyPos);
   }, 1000);
 }
 
@@ -97,10 +93,6 @@ setTimeout(() => {
 },1000);
 
 }, 0);
-
-
-
-
 
 
 setTimeout(() => {

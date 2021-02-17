@@ -186,9 +186,10 @@
   min-height: 142px;
   min-width: 100px;
   position: absolute;
-  right: -200px;
+  right: -2500px;
 }
 .first-player-deck {
+  display: flex;
   top: 40px;
 }
 .second-player-deck {

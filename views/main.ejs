@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Legends of Avengers</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link type="text/css" rel="stylesheet" href="../style/style.css" />
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Marvel:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    <base href="/">
   </head>
   <body>
     <div class="container">
@@ -53,7 +54,7 @@
             <div draggable="true" class="card">
               <img
                 class="card-portrait"
-                src="assets/images/portraits/iron-man.png"
+                src="/assets/images/portraits/iron-man.png"
                 alt=""
                 draggable="false"
               />
@@ -106,8 +107,9 @@
     </div>
     </div>
    
-
-    <script src="js/drag'n'drop.js"></script>
-    <script src="js/random-cards.js"></script>
+    <script type="module" src="../js/Card.js"></script>
+    <script src="../js/drag'n'drop.js"></script>
+    <script src="../js/random-cards.js"></script>
+    
   </body>
 </html>

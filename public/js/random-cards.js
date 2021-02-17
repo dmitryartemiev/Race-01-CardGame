@@ -10,12 +10,37 @@ async function getCard() {
   return [...data];
 }
 
-//Цикл добавления карты в колоду
+//переменные из ДОМа
 const $firstPlayerDeck = document.querySelector(".first-player-deck");
 const $secondPlayerDeck = document.querySelector(".second-player-deck");
+const $firstPlayerHand = document.querySelector("#first-player-hand");
+const $secondPlayerHand = document.querySelector("#second-player-hand");
 
-//получаем рандомное число
+//функция добавления карты в руку
+function addCardToHand(hand, deck) {
+  setTimeout(() => {
+    let empty;
+    for (let finger of hand.children) {
+      if (finger.innerHTML === "") {
+        empty = finger;
+      }
+    }
 
+    let cardPos = deck.children[0].getBoundingClientRect();
+    let emptyPos = empty.getBoundingClientRect();
+    deck.children[0].style.transform = `translate(-${cardPos.x - emptyPos.x}px)`;
+    setTimeout(() => {
+      deck.children[0].style.transform = `translate(0px)`;
+      empty.appendChild(deck.children[0]);
+      deck.children[0].remove();
+    }, 1000);
+
+    console.log(cardPos);
+    console.log(emptyPos);
+  }, 1000);
+}
+
+//Цикл добавления карт в колоды, а затем и в руки
 getCard().then((data) => {
   //перемешать массив
   function shuffleArray(array) {
@@ -56,10 +81,34 @@ getCard().then((data) => {
       deck.appendChild($newCard);
     }
   }
-  addCardsToDeck($firstPlayerDeck)
-  addCardsToDeck($secondPlayerDeck)
 
+  addCardsToDeck($firstPlayerDeck);
+  addCardsToDeck($secondPlayerDeck);
   dragAndDrop();
-
-
 });
+
+setTimeout(() => {
+  addCardToHand($firstPlayerHand, $firstPlayerDeck);
+setTimeout(() => {
+  addCardToHand($firstPlayerHand, $firstPlayerDeck);
+  setTimeout(() => {
+  addCardToHand($firstPlayerHand, $firstPlayerDeck);
+}, 1000);
+},1000);
+
+}, 0);
+
+
+
+
+
+
+setTimeout(() => {
+  addCardToHand($secondPlayerHand, $secondPlayerDeck);
+  setTimeout(() => {
+    addCardToHand($secondPlayerHand, $secondPlayerDeck);
+    setTimeout(() => {
+      addCardToHand($secondPlayerHand, $secondPlayerDeck);
+    }, 1000);
+  }, 1000);
+}, 0);

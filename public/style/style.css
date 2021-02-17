@@ -38,7 +38,7 @@
   position: relative;
   cursor: grab;
   background-color: rgb(0, 0, 0);
-  transition: transform 0.25s;
+  transition: transform 1s;
 }
 .card:hover {
   transform: scale(1.1);
@@ -190,9 +190,9 @@
 }
 .first-player-deck {
   display: flex;
-  top: 40px;
+  top: 50px;
 }
 .second-player-deck {
-  bottom: 40px;
+  bottom: 30px;
   display: flex;
 }

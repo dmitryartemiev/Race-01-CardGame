@@ -1,14 +1,10 @@
 "use strict";
 
-import Card from "./Card.js";
 import dragAndDrop from "./drag'n'drop.js";
+import cards from "./script.js";
 
-//получаем карты из json
-async function getCard() {
-  const response = await fetch("./js/cards.json");
-  const data = await response.json();
-  return [...data];
-}
+
+
 
 //переменные из ДОМа
 const $firstPlayerDeck = document.querySelector(".first-player-deck");
@@ -37,32 +33,20 @@ function addCardToHand(hand, deck) {
 }
 
 //Цикл добавления карт в колоды, а затем и в руки
-getCard().then((data) => {
-  //перемешать массив
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  }
-  //функция добавления карт в колоду
-  function addCardsToDeck(deck) {
-    shuffleArray(data);
-    for (let item of data) {
-      let card = new Card(
-        item.id,
-        item.title,
-        item.portrait,
-        item.price,
-        item.health,
-        item.attack
-      );
 
-      let $newCard = document.createElement("div");
-      $newCard.classList.add("card");
-      $newCard.setAttribute("draggable", "true");
-      $newCard.setAttribute("id", item.id);
-      $newCard.innerHTML = `
+//функция добавления карт в колоду
+function addCardsToDeck(deck) {
+  console.log(deck);
+
+  for (let card of cards) {
+
+    console.log('works');
+   
+    let $newCard = document.createElement("div");
+    $newCard.classList.add("card");
+    $newCard.setAttribute("draggable", "true");
+    $newCard.setAttribute("id", card.id);
+    $newCard.innerHTML = `
     <img
     class="card-portrait"
     src="${card.portrait}"
@@ -73,34 +57,41 @@ getCard().then((data) => {
   <div class="defence">${card.health}</div>
   <div class="attack">${card.attack}</div>
   <div class="card-title">${card.title}</div>`;
-
-      deck.appendChild($newCard);
-    }
+    deck.appendChild($newCard);
   }
 
-  addCardsToDeck($firstPlayerDeck);
+
+}
+
+setTimeout(() => {
+
+  addCardsToDeck($firstPlayerDeck); 
   addCardsToDeck($secondPlayerDeck);
-  dragAndDrop();
-});
+   dragAndDrop();
 
-setTimeout(() => {
-  addCardToHand($firstPlayerHand, $firstPlayerDeck);
-setTimeout(() => {
-  addCardToHand($firstPlayerHand, $firstPlayerDeck);
-  setTimeout(() => {
-  addCardToHand($firstPlayerHand, $firstPlayerDeck);
-}, 1000);
-},1000);
+ setTimeout(() => {
+    addCardToHand($firstPlayerHand, $firstPlayerDeck);
+    setTimeout(() => {
+      addCardToHand($firstPlayerHand, $firstPlayerDeck);
+      setTimeout(() => {
+        addCardToHand($firstPlayerHand, $firstPlayerDeck);
+      }, 1000);
+    }, 1000);
+  }, 0);
 
-}, 0);
-
-
-setTimeout(() => {
-  addCardToHand($secondPlayerHand, $secondPlayerDeck);
   setTimeout(() => {
     addCardToHand($secondPlayerHand, $secondPlayerDeck);
     setTimeout(() => {
       addCardToHand($secondPlayerHand, $secondPlayerDeck);
+      setTimeout(() => {
+        addCardToHand($secondPlayerHand, $secondPlayerDeck);
+      }, 1000);
     }, 1000);
-  }, 1000);
-}, 0);
+  }, 0);
+
+
+
+}, 100);
+ 
+
+ 

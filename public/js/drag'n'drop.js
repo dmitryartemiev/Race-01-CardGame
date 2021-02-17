@@ -33,6 +33,7 @@ function dragAndDrop() {
       this.classList.remove("hovered");
     };
     const dragDrop = function () {
+      console.log('drop');
       this.classList.remove("hovered");
       let pickUpZone;
       let dropZone;

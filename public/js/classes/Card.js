@@ -8,6 +8,7 @@ class Card {
     this.health = health;
     this.attack = attack;
   }
+
 };
 
 

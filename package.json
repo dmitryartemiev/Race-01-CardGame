@@ -64,10 +64,15 @@
     "@babel/cli": "^7.12.16",
     "@babel/core": "^7.12.16",
     "@babel/node": "^7.12.16",
-    "@babel/preset-env": "^7.12.16"
+    "@babel/preset-env": "^7.12.16",
+    "nodemon": "^2.0.7"
+  },
+  "nodemonConfig": {
+    "delay": 2000
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

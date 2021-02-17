@@ -1,5 +1,5 @@
 // //создаем класс Карта
-export default class Card {
+class Card {
   constructor(id, title, portrait, price, health, attack) {
     this.id = id;
     this.title = title;
@@ -9,3 +9,6 @@ export default class Card {
     this.attack = attack;
   }
 };
+
+
+export default Card;

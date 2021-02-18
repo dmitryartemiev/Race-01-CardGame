@@ -19,8 +19,27 @@ function dragAndDrop() {
         this.classList.remove("hide");
       }, 0);
     };
+    const dragEnter = function (evt) {
+      evt.preventDefault();
+      this.classList.add("aim");
+    };
+    const dragLeave = function () {
+   
+         this.classList.remove("aim");
+  
+      
+     
+    };
+    const dragOver = function (evt) {
+      evt.preventDefault();
+      this.classList.add("aim");
+
+    };
     card.addEventListener("dragstart", dragStart);
     card.addEventListener("dragend", dragEnd);
+    card.addEventListener("dragenter", dragEnter);
+    card.addEventListener("dragleave", dragLeave);
+    card.addEventListener("dragover", dragOver);
   }
 
   for (let empty of empties) {
@@ -32,11 +51,14 @@ function dragAndDrop() {
       this.classList.add("hovered");
     };
     const dragLeave = function () {
-      this.classList.remove("hovered");
+      setTimeout(() => {
+         this.classList.remove("hovered");
+      }, 100);
+     
     };
     const dragDrop = function () {
       // console.log("drop");
-      this.classList.remove("hovered");
+ 
       let pickUpZone;
       let dropZone;
       let droppable = false;
@@ -54,7 +76,7 @@ function dragAndDrop() {
 
       let dropZoneCL = [...dropZone.classList].join(" ");
       let pickUpZoneCL = [...pickUpZone.classList].join(" ");
-
+//ограничения движения
       if (
         (pickUpZoneCL.includes("second-hand") &&
           dropZoneCL.includes("second-player-section")) ||
@@ -90,12 +112,65 @@ function dragAndDrop() {
         dropZoneCL.includes("section") &&
         dropZoneCL !== pickUpZoneCL
       ) {
+        let transferPartentCL = [
+          ...transfer.parentElement.parentElement.classList,
+        ].join(" ");
+        function attack (player, enemy){
+          
+          let cardId = transfer.getAttribute("id");
+          let foundIn;
+          let cardFound;
+          let enemyCardFound;
 
 
-        console.log("atack");
+          player.hand.forEach((card) => {
+            if (card.id == cardId) {
+              foundIn = player.hand;
+              cardFound = card;
+              
+            }
+          });
+          player.playground.forEach((card) => {
+            if (card.id == cardId) {
+              foundIn = player.playground;
+              cardFound = card;
+            }
+          });
 
-
+     
+        console.log(cardFound)
+        console.log(' attacked' );
+        let aim = dropZone.querySelector('.aim');
         
+        enemy.playground.forEach((card) => {
+          if (card.id == aim.getAttribute('id')){
+            enemyCardFound = card;
+          }
+        })
+
+        console.log(enemyCardFound);
+
+        aim.classList.remove('aim')
+
+
+        }
+
+   
+
+        let cardOwner;
+        if (transferPartentCL.match(/second/gm)) {
+          cardOwner = "second";
+        } else if (transferPartentCL.match(/first/gm)) {
+          cardOwner = "first";
+        }
+
+        if (cardOwner === "first") {
+          attack(firstPlayer, secondPlayer);
+
+        } else if (cardOwner === "second") {
+          attack(secondPlayer, firstPlayer);
+        }
+
       }
 
       if (!this.innerHTML == "") {
@@ -159,18 +234,17 @@ function dragAndDrop() {
 
         if (cardOwner === "first") {
           movement(firstPlayer);
-
-          // console.log(dropZoneObj);
-          // console.log(cardFound);
-          // console.log(foundIn);
         } else if (cardOwner === "second") {
           movement(secondPlayer);
         }
 
-        // console.log(cardOwner);
+        // setTimeout(() => {
+        //   console.log(this.classList);
+        //   this.classList.remove("hovered");
+        //   this.classList.remove("aim");
+        // }, 100);
+     
 
-        // console.log("pickup " + pickUpZone);
-        // console.log("dropzone " + dropZone);
       }
     };
     empty.addEventListener("dragover", dragOver);

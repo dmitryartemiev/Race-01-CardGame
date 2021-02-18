@@ -57,6 +57,7 @@ function addCardsToDeck($deck, deckObj) {
     alt=""
     draggable="false"
   />
+  <div class="damage">damage</div>
   <div class="cost">${card.price}</div>
   <div class="defence">${card.health}</div>
   <div class="attack">${card.attack}</div>

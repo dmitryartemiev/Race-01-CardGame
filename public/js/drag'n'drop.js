@@ -137,22 +137,38 @@ function dragAndDrop() {
             }
           });
 
-     
+     /// инициализируем карты
         console.log(cardFound)
         console.log(' attacked' );
         let aim = dropZone.querySelector('.aim');
-        
         enemy.playground.forEach((card) => {
           if (card.id == aim.getAttribute('id')){
             enemyCardFound = card;
           }
         })
-
         console.log(enemyCardFound);
+        ///инициализация закончена cardFound - атакующий, enemyCardFound - жертва
+        //отнимаем хп
+        cardFound.health = cardFound.health - enemyCardFound.attack;
+        enemyCardFound.health = enemyCardFound.health - cardFound.attack;
+       let $cardFound =  document.getElementById(cardFound.id)
+       $cardFound.querySelector('.defence').innerHTML = cardFound.health;
+       let $enemyCardFound =  document.getElementById(enemyCardFound.id)
+       $enemyCardFound.querySelector('.defence').innerHTML = enemyCardFound.health;
+       //отняли
+       //анимация удара
+        $enemyCardFound.style.transform = 'scale(0.8)'
+        $enemyCardFound.querySelector('.damage').innerHTML = `-${cardFound.attack}`
+        $enemyCardFound.querySelector('.damage').style.display = 'block';
+        setTimeout(() => {
+          $enemyCardFound.style.transform = 'scale(1)'
+          $enemyCardFound.querySelector('.damage').innerHTML = ''
+        $enemyCardFound.querySelector('.damage').style.display = 'none';
+        }, 500);
+        //проанимировали
+
 
         aim.classList.remove('aim')
-
-
         }
 
    
@@ -172,7 +188,7 @@ function dragAndDrop() {
         }
 
       }
-
+//атака закончена
       if (!this.innerHTML == "") {
         droppable = false;
       }

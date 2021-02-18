@@ -160,12 +160,47 @@ function dragAndDrop() {
         $enemyCardFound.style.transform = 'scale(0.8)'
         $enemyCardFound.querySelector('.damage').innerHTML = `-${cardFound.attack}`
         $enemyCardFound.querySelector('.damage').style.display = 'block';
+        $cardFound.querySelector('.damage').innerHTML = `-${enemyCardFound.attack}`
+        $cardFound.querySelector('.damage').style.display = 'block';
         setTimeout(() => {
           $enemyCardFound.style.transform = 'scale(1)'
           $enemyCardFound.querySelector('.damage').innerHTML = ''
         $enemyCardFound.querySelector('.damage').style.display = 'none';
-        }, 500);
+        $cardFound.querySelector('.damage').innerHTML = ''
+        $cardFound.querySelector('.damage').style.display = 'none';
+        }, 1000);
         //проанимировали
+        //начинем убийство
+          if(enemyCardFound.health <1){
+            $enemyCardFound.style.transform = 'rotate(30deg)'
+            enemy.playground.forEach((card) => {
+              if (card.id == $enemyCardFound.getAttribute('id')){
+                let index = enemy.playground.indexOf(card);
+                enemy.playground.splice(index, 1)
+              }
+            })
+            setTimeout(() => {
+
+              $enemyCardFound.parentElement.innerHTML = ''
+            }, 1000);
+            
+            console.log(enemy.playground);
+          }
+          if(cardFound.health <1){
+            $cardFound.style.transform = 'rotate(30deg)'
+            player.playground.forEach((card) => {
+              if (card.id == $cardFound.getAttribute('id')){
+                let index = player.playground.indexOf(card);
+                player.playground.splice(index, 1)
+              }
+            })
+            setTimeout(() => {
+              $cardFound.parentElement.innerHTML = ''
+            }, 1000);
+            
+            console.log(player.playground);
+          }
+        //убили
 
 
         aim.classList.remove('aim')

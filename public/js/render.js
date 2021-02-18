@@ -106,46 +106,6 @@ resolve()
 
 },100)
 
-// })
 
-
-
-// setTimeout(() => {
-
-
-//   //добавляем по 3 карты с колоды в руки
-//     firstPlayer.addCardToHand()
-//     secondPlayer.addCardToHand()
-//     firstPlayer.addCardToHand()
-//     secondPlayer.addCardToHand()
-//     firstPlayer.addCardToHand()
-//     secondPlayer.addCardToHand()
-
-//  setTimeout(() => {
-
-//     addCardToHand($firstPlayerHand, $firstPlayerDeck, firstPlayer.hand, firstPlayer.deck);
-
-//     setTimeout(() => {
-//       addCardToHand($firstPlayerHand, $firstPlayerDeck, firstPlayer.hand,firstPlayer.deck);
-//       setTimeout(() => {
-//         addCardToHand($firstPlayerHand, $firstPlayerDeck, firstPlayer.hand,firstPlayer.deck);
-//       }, 1000);
-//     }, 1000);
-//   }, 0);
-
-//   setTimeout(() => {
-//     addCardToHand($secondPlayerHand, $secondPlayerDeck, secondPlayer.hand, secondPlayer.deck);
-//     setTimeout(() => {
-//       addCardToHand($secondPlayerHand, $secondPlayerDeck, secondPlayer.hand, secondPlayer.deck);
-//       setTimeout(() => {
-//         addCardToHand($secondPlayerHand, $secondPlayerDeck, secondPlayer.hand, secondPlayer.deck);
-//       }, 1000);
-//     }, 1000);
-//   }, 0);
-
-
-//    dragAndDrop();
-// }, 100);
- 
 
  

@@ -254,13 +254,6 @@ function dragAndDrop() {
           movement(secondPlayer);
         }
 
-        // setTimeout(() => {
-        //   console.log(this.classList);
-        //   this.classList.remove("hovered");
-        //   this.classList.remove("aim");
-        // }, 100);
-     
-
       }
     };
     empty.addEventListener("dragover", dragOver);

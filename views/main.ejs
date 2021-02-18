@@ -20,23 +20,23 @@
         <div class="empty"></div>
       </div>
       <div id="first-player" class="player-section">
+        <div class="first-player-title">
+          title
+        </div>
         <div id="first-player-avatar" class="avatar">
           <div id="first-player-health" class="health">10</div>
         </div>
-        <div id="first-player-coins" class="coins-container">
-          <div id="first-plater-coins-amount" class="coins-amount">6/6</div>
-          <div class="coins">
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
+        <div  class="coins-container">
+          <div id="first-player-coins-amount" class="coins-amount">1/1</div>
+          <div id="first-player-coins" class="coins">
+            <div class="coin "></div>
+          
           </div>
         </div>
       </div>
       <div class="playground">
-        <div class="combat-button">COMBAT</div>
+        <!-- <div class="round-button">ROUND</div> -->
+        <button class="round-button">ROUND</button>
         <div class="first-player-section section">
           <div class="empty"></div>
           <div class="empty"></div>
@@ -44,6 +44,7 @@
           <div class="empty"></div>
           <div class="empty"></div>
         </div>
+        <div class="turn">Turn: First Player</div>
         <div class="second-player-section section">
           <div class="empty"></div>
           <div class="empty"></div>
@@ -51,22 +52,23 @@
           <div class="empty"></div>
           <div class="empty"></div>
         </div>
-        <div class="time">60</div>
+        <div class="time">30</div>
+        
       </div>
 
       <div id="first-player" class="player-section">
         <div id="first-player-avatar" class="avatar">
           <div id="first-player-health" class="health">10</div>
+          <div class="second-player-title">
+            title
+          </div>
         </div>
-        <div id="second-player-coins" class="coins-container">
-          <div id="first-plater-coins-amount" class="coins-amount">6/6</div>
-          <div class="coins">
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
+      
+        <div  class="coins-container">
+          <div id="second-player-coins-amount" class="coins-amount">0/1</div>
+          <div id="second-player-coins"class="coins">
+            <div class="coin grey-coin "></div>
+  
           </div>
         </div>
       </div>
@@ -89,6 +91,7 @@
     </div>
    
     <script type="module" src="../js/script.js"></script>
+    <script type="module"src="../js/turns.js"></script>
     <script type="module" src="../js/render.js"></script>
     <script type="module"src="../js/drag'n'drop.js"></script>
      

@@ -124,6 +124,9 @@
   right: 50px;
   display: flex;
 }
+#second-player-coins{
+  bottom:210px;
+}
 .coins-amount {
   bottom: 0;
 }
@@ -161,18 +164,18 @@
   top: 45%;
   font-size: 3.5rem;
 }
-.combat-button {
+.round-button {
   position: absolute;
   right: 20px;
   top: 45%;
   font-weight: 700;
   font-size: 1.5rem;
-
+  transition: .2s ease all;
   padding: 10px;
   background: linear-gradient(35deg, rgb(126, 23, 23), rgb(255, 0, 0));
   border-radius: 20px;
 }
-.combat-button:active {
+.round-button:active {
   background: rgb(146, 24, 24);
 }
 .empty {
@@ -198,7 +201,7 @@
   bottom: 30px;
   display: flex;
 }
-.damage{
+.damage {
   position: absolute;
   color: red;
   top: 20px;
@@ -208,8 +211,31 @@
   border-radius: 10px;
   padding: 3px;
   left: 10px;
-  display:none;
+  display: none;
   transition: 1s ease all;
   font-size: 2rem;
+}
+.grey-coin {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: 0 2px;
+  background-color: grey;
+}
+.turn {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.second-player-title,.first-player-title{
+  text-transform: uppercase;
+  font-weight: 700;
 
+}
+.first-player-title{
+
+  position: absolute;
+  z-index: 999;
+  left: 400px;
 }

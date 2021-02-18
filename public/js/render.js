@@ -106,6 +106,6 @@ resolve()
 
 },100)
 
-
+export default addCardToHandRender;
 
  

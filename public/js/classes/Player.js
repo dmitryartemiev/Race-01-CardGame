@@ -5,7 +5,7 @@ import shuffle from "../shuffle.js";
 import Playground from "./Playground.js";
 
 class Player {
-  constructor(login, password,position, hp = 10, deck, hand, playground ) {
+  constructor(login, password,position, hp = 10, deck, hand, playground, turn, coins, coinsMax ) {
     this.login = login;
     this.password = password;
     this.position = position;
@@ -13,6 +13,9 @@ class Player {
     this.deck = deck;
     this.hand = hand;
     this.playground = playground;
+    this.turn = turn;
+    this.coins = coins;
+    this.coinsMax = coinsMax;
   }
   addDeckToPlayer() {
     this.deck = new Deck();

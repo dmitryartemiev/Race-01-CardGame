@@ -24,16 +24,11 @@ function dragAndDrop() {
       this.classList.add("aim");
     };
     const dragLeave = function () {
-   
-         this.classList.remove("aim");
-  
-      
-     
+      this.classList.remove("aim");
     };
     const dragOver = function (evt) {
       evt.preventDefault();
       this.classList.add("aim");
-
     };
     card.addEventListener("dragstart", dragStart);
     card.addEventListener("dragend", dragEnd);
@@ -52,16 +47,16 @@ function dragAndDrop() {
     };
     const dragLeave = function () {
       setTimeout(() => {
-         this.classList.remove("hovered");
+        this.classList.remove("hovered");
       }, 100);
-     
     };
     const dragDrop = function () {
       // console.log("drop");
- 
+      this.classList.remove("hovered");
       let pickUpZone;
       let dropZone;
       let droppable = false;
+      let coinsEnough = false;
 
       if (transfer.closest(".empty").closest(".hand")) {
         pickUpZone = transfer.closest(".empty").closest(".hand");
@@ -76,7 +71,7 @@ function dragAndDrop() {
 
       let dropZoneCL = [...dropZone.classList].join(" ");
       let pickUpZoneCL = [...pickUpZone.classList].join(" ");
-//ограничения движения
+      //ограничения движения
       if (
         (pickUpZoneCL.includes("second-hand") &&
           dropZoneCL.includes("second-player-section")) ||
@@ -105,6 +100,10 @@ function dragAndDrop() {
       ) {
         droppable = true;
       }
+      let cardOwner;
+      let transferPartentCL = [
+        ...transfer.parentElement.parentElement.classList,
+      ].join(" ");
       //атака
       if (
         pickUpZoneCL.includes("section") &&
@@ -112,22 +111,16 @@ function dragAndDrop() {
         dropZoneCL.includes("section") &&
         dropZoneCL !== pickUpZoneCL
       ) {
-        let transferPartentCL = [
-          ...transfer.parentElement.parentElement.classList,
-        ].join(" ");
-        function attack (player, enemy){
-          
+        function attack(player, enemy) {
           let cardId = transfer.getAttribute("id");
           let foundIn;
           let cardFound;
           let enemyCardFound;
 
-
           player.hand.forEach((card) => {
             if (card.id == cardId) {
               foundIn = player.hand;
               cardFound = card;
-              
             }
           });
           player.playground.forEach((card) => {
@@ -137,93 +130,136 @@ function dragAndDrop() {
             }
           });
 
-     /// инициализируем карты
-        console.log(cardFound)
-        console.log(' attacked' );
-        let aim = dropZone.querySelector('.aim');
-        enemy.playground.forEach((card) => {
-          if (card.id == aim.getAttribute('id')){
-            enemyCardFound = card;
-          }
-        })
-        console.log(enemyCardFound);
-        ///инициализация закончена cardFound - атакующий, enemyCardFound - жертва
-        //отнимаем хп
-        cardFound.health = cardFound.health - enemyCardFound.attack;
-        enemyCardFound.health = enemyCardFound.health - cardFound.attack;
-       let $cardFound =  document.getElementById(cardFound.id)
-       $cardFound.querySelector('.defence').innerHTML = cardFound.health;
-       let $enemyCardFound =  document.getElementById(enemyCardFound.id)
-       $enemyCardFound.querySelector('.defence').innerHTML = enemyCardFound.health;
-       //отняли
-       //анимация удара
-        $enemyCardFound.style.transform = 'scale(0.8)'
-        $enemyCardFound.querySelector('.damage').innerHTML = `-${cardFound.attack}`
-        $enemyCardFound.querySelector('.damage').style.display = 'block';
-        $cardFound.querySelector('.damage').innerHTML = `-${enemyCardFound.attack}`
-        $cardFound.querySelector('.damage').style.display = 'block';
-        setTimeout(() => {
-          $enemyCardFound.style.transform = 'scale(1)'
-          $enemyCardFound.querySelector('.damage').innerHTML = ''
-        $enemyCardFound.querySelector('.damage').style.display = 'none';
-        $cardFound.querySelector('.damage').innerHTML = ''
-        $cardFound.querySelector('.damage').style.display = 'none';
-        }, 1000);
-        //проанимировали
-        //начинем убийство
-          if(enemyCardFound.health <1){
-            $enemyCardFound.style.transform = 'rotate(30deg)'
+          /// инициализируем карты
+          console.log(cardFound);
+          console.log(" attacked");
+          let aim = dropZone.querySelector(".aim");
+          enemy.playground.forEach((card) => {
+            if (card.id == aim.getAttribute("id")) {
+              enemyCardFound = card;
+            }
+          });
+          console.log(enemyCardFound);
+          ///инициализация закончена cardFound - атакующий, enemyCardFound - жертва
+          //отнимаем хп
+          cardFound.health = cardFound.health - enemyCardFound.attack;
+          enemyCardFound.health = enemyCardFound.health - cardFound.attack;
+          let $cardFound = document.getElementById(cardFound.id);
+          $cardFound.querySelector(".defence").innerHTML = cardFound.health;
+          let $enemyCardFound = document.getElementById(enemyCardFound.id);
+          $enemyCardFound.querySelector(".defence").innerHTML =
+            enemyCardFound.health;
+          //отняли
+          //анимация удара
+          $enemyCardFound.style.transform = "scale(0.8)";
+          $enemyCardFound.querySelector(
+            ".damage"
+          ).innerHTML = `-${cardFound.attack}`;
+          $enemyCardFound.querySelector(".damage").style.display = "block";
+          $cardFound.querySelector(
+            ".damage"
+          ).innerHTML = `-${enemyCardFound.attack}`;
+          $cardFound.querySelector(".damage").style.display = "block";
+          setTimeout(() => {
+            $enemyCardFound.style.transform = "scale(1)";
+            $enemyCardFound.querySelector(".damage").innerHTML = "";
+            $enemyCardFound.querySelector(".damage").style.display = "none";
+            $cardFound.querySelector(".damage").innerHTML = "";
+            $cardFound.querySelector(".damage").style.display = "none";
+          }, 1000);
+          //проанимировали
+          //начинем убийство
+          if (enemyCardFound.health < 1) {
+            $enemyCardFound.style.transform = "rotate(30deg)";
             enemy.playground.forEach((card) => {
-              if (card.id == $enemyCardFound.getAttribute('id')){
+              if (card.id == $enemyCardFound.getAttribute("id")) {
                 let index = enemy.playground.indexOf(card);
-                enemy.playground.splice(index, 1)
+                enemy.playground.splice(index, 1);
               }
-            })
+            });
             setTimeout(() => {
-
-              $enemyCardFound.parentElement.innerHTML = ''
+              $enemyCardFound.parentElement.innerHTML = "";
             }, 1000);
-            
+
             console.log(enemy.playground);
           }
-          if(cardFound.health <1){
-            $cardFound.style.transform = 'rotate(30deg)'
+          if (cardFound.health < 1) {
+            $cardFound.style.transform = "rotate(30deg)";
             player.playground.forEach((card) => {
-              if (card.id == $cardFound.getAttribute('id')){
+              if (card.id == $cardFound.getAttribute("id")) {
                 let index = player.playground.indexOf(card);
-                player.playground.splice(index, 1)
+                player.playground.splice(index, 1);
               }
-            })
+            });
             setTimeout(() => {
-              $cardFound.parentElement.innerHTML = ''
+              $cardFound.parentElement.innerHTML = "";
             }, 1000);
-            
+
             console.log(player.playground);
           }
-        //убили
+          //убили
 
-
-        aim.classList.remove('aim')
+          aim.classList.remove("aim");
         }
 
-   
-
-        let cardOwner;
         if (transferPartentCL.match(/second/gm)) {
           cardOwner = "second";
         } else if (transferPartentCL.match(/first/gm)) {
           cardOwner = "first";
         }
 
-        if (cardOwner === "first") {
+        if (cardOwner === "first" && firstPlayer.turn === true) {
           attack(firstPlayer, secondPlayer);
-
-        } else if (cardOwner === "second") {
+        } else if (cardOwner === "second" && secondPlayer.turn === true) {
           attack(secondPlayer, firstPlayer);
         }
-
       }
-//атака закончена
+      //атака закончена
+
+
+      function costCheck(player) {
+        let cardFound;
+        let cardId = transfer.getAttribute("id");
+        player.hand.forEach((card) => {
+          if (card.id == cardId) {
+            cardFound = card;
+          }
+        });
+        player.playground.forEach((card) => {
+          if (card.id == cardId) {
+            cardFound = card;
+          }
+        });
+
+        if (cardFound.price > player.coins) {
+          console.log(false);
+          return false;
+        } else if (cardFound.price <= player.coins) {
+          console.log(true);
+          return true;
+        }
+      }
+
+      if (transferPartentCL.match(/second/gm)) {
+        cardOwner = "second";
+      } else if (transferPartentCL.match(/first/gm)) {
+        cardOwner = "first";
+      }
+
+      if (
+        (cardOwner === "first" && firstPlayer.turn === false) ||
+        (cardOwner === "first" && !costCheck(firstPlayer))
+      ) {
+        droppable = false;
+      }
+
+      if (
+        (cardOwner === "second" && secondPlayer.turn === false) ||
+        (cardOwner === "second" && !costCheck(secondPlayer))
+      ) {
+        droppable = false;
+      }
+
       if (!this.innerHTML == "") {
         droppable = false;
       }
@@ -262,19 +298,56 @@ function dragAndDrop() {
           foundIn.forEach((elem) => {
             if (elem.id === cardFound.id) {
               let index = foundIn.indexOf(elem);
-              console.log(index);
-
               dropZoneObj.push(elem);
-              console.log(player.login + " playground");
-              console.log(player.playground);
-
               foundIn.splice(index, 1);
-              console.log(player.login + " hand");
-              console.log(player.hand);
             }
           });
+
+          //монетки
+          let $firstPlayerCoins = document.querySelector(
+            "#first-player-coins-amount"
+          );
+          let $secondPlayerCoins = document.querySelector(
+            "#second-player-coins-amount"
+          );
+          let playerCoins;
+          if (player.position === "first") {
+            playerCoins = $firstPlayerCoins;
+          } else if (player.position === "second") {
+            playerCoins = $secondPlayerCoins;
+          }
+
+          let coinsCont;
+          let $firstPlayerCoinsCont = document.getElementById(
+            "first-player-coins"
+          );
+          let $secondPlayerConsCont = document.getElementById(
+            "second-player-coins"
+          );
+          if (player.position === "first") {
+            coinsCont = $firstPlayerCoinsCont;
+          } else if (player.position === "second") {
+            coinsCont = $secondPlayerConsCont;
+          }
+
+          if (cardFound.price <= player.coins) {
+            player.coins = player.coins - cardFound.price;
+            
+            let $greyCoins = coinsCont.querySelectorAll(".grey-coin");
+            let counterGreyCoin = $greyCoins.length
+
+            let $coins = coinsCont.querySelectorAll(".coin");
+            for (let i = 0; i < cardFound.price; i++) {
+
+              $coins[i].classList.add("grey-coin");
+              $coins[i].classList.remove('coin')
+            }
+            playerCoins.innerHTML = `${player.coins}/${player.coinsMax}`;
+          }
+          //монетки конец
         }
 
+        let cardFound;
         let cardOwner;
         let cardId = transfer.getAttribute("id");
         if (transferPartentCL.match(/second/gm)) {
@@ -283,12 +356,19 @@ function dragAndDrop() {
           cardOwner = "first";
         }
 
-        if (cardOwner === "first") {
+        if (
+          cardOwner === "first" &&
+          firstPlayer.turn === true
+          // stateFirst === true
+        ) {
           movement(firstPlayer);
-        } else if (cardOwner === "second") {
+        } else if (
+          cardOwner === "second" &&
+          secondPlayer.turn === true
+          // stateSecond === true
+        ) {
           movement(secondPlayer);
         }
-
       }
     };
     empty.addEventListener("dragover", dragOver);

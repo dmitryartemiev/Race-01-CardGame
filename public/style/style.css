@@ -19,12 +19,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .hand {
   border: 1px solid black;
   margin: 30px 100px;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-around;
   flex-wrap: wrap;
   background: url("/assets/images/comicpanelsdark.png") rgb(146, 85, 85);
